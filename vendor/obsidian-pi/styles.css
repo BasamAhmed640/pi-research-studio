@@ -1,0 +1,1540 @@
+.pi-agent-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 12px;
+  padding: 12px;
+}
+
+.pi-agent-header {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  min-height: 30px;
+}
+
+.pi-agent-brand {
+  align-items: center;
+  display: inline-flex;
+  gap: 7px;
+  min-width: 0;
+}
+
+.pi-agent-brand-icon {
+  align-items: center;
+  color: var(--text-muted);
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 18px;
+  justify-content: center;
+  width: 18px;
+}
+
+.pi-agent-brand-icon svg {
+  height: 18px;
+  width: 18px;
+}
+
+.pi-agent-thread-title {
+  appearance: none;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  color: var(--text-normal);
+  cursor: default;
+  display: inline;
+  font-size: var(--font-ui-small);
+  min-width: 0;
+  overflow: hidden;
+  padding: 0;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pi-agent-thread-title:hover,
+.pi-agent-thread-title:focus,
+.pi-agent-thread-title.is-editing {
+  background: none;
+  box-shadow: none;
+  color: var(--text-normal);
+  outline: none;
+}
+
+.pi-agent-thread-title > span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pi-agent-thread-title-input {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: var(--text-normal);
+  font: inherit;
+  height: 22px;
+  min-width: 120px;
+  outline: none;
+  padding: 0;
+  width: min(220px, 34vw);
+}
+
+.pi-agent-header-actions {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 2px;
+}
+
+.pi-agent-header-action,
+.pi-agent-thread-menu {
+  background: transparent;
+  color: var(--text-muted);
+  height: 30px;
+  width: 30px;
+}
+
+.pi-agent-header-action svg,
+.pi-agent-thread-menu svg {
+  height: 16px;
+  width: 16px;
+}
+
+.pi-agent-header-action:hover,
+.pi-agent-header-action:focus,
+.pi-agent-thread-menu:hover,
+.pi-agent-thread-menu:focus {
+  background: transparent;
+  color: var(--text-normal);
+}
+
+.pi-agent-header-favorite svg,
+.pi-agent-thread-favorite svg {
+  fill: none;
+}
+
+.pi-agent-header-favorite.is-favorite {
+  color: var(--text-normal);
+}
+
+.pi-agent-header-favorite.is-favorite svg,
+.pi-agent-thread-favorite.is-favorite svg {
+  fill: currentColor;
+}
+
+.pi-agent-run-settings {
+  align-items: center;
+  display: flex;
+  flex: 1 1 auto;
+  gap: 2px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.pi-agent-view button.pi-agent-run-setting {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: none;
+  color: var(--text-normal);
+  gap: 4px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 28px;
+  justify-content: center;
+  padding: 0 4px;
+  width: auto;
+}
+
+.pi-agent-run-setting:hover,
+.pi-agent-run-setting:focus {
+  background: transparent;
+  color: var(--text-normal);
+}
+
+.pi-agent-run-setting svg {
+  height: 15px;
+  width: 15px;
+}
+
+.pi-agent-provider-icon {
+  align-items: center;
+  color: currentColor;
+  display: inline-flex;
+  flex: 0 0 16px;
+  height: 16px;
+  justify-content: center;
+  width: 16px;
+}
+
+.pi-agent-provider-icon svg {
+  fill: currentColor;
+  height: 15px;
+  width: 15px;
+}
+
+.pi-agent-provider-icon.is-monogram {
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font-size: 7px;
+  font-weight: var(--font-bold);
+  letter-spacing: -0.3px;
+  line-height: 1;
+}
+
+.pi-agent-run-setting-speed-fast,
+.pi-agent-run-setting-speed-default,
+.pi-agent-run-setting-mode-read {
+  color: var(--text-normal);
+}
+
+.pi-agent-run-setting-mode-write {
+  color: var(--text-warning);
+}
+
+.pi-agent-run-setting-mode-full {
+  color: var(--text-error);
+  font-weight: 700;
+}
+
+.pi-agent-control-label {
+  color: currentColor;
+  font-size: var(--font-ui-smaller);
+  line-height: 1;
+  max-width: 78px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pi-agent-messages {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  flex: 1;
+  min-height: 220px;
+  overflow: auto;
+  padding: 10px;
+}
+
+.pi-agent-empty {
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.pi-agent-empty-state {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.pi-agent-empty-icon {
+  color: color-mix(in srgb, var(--text-muted) 35%, transparent);
+  display: inline-flex;
+}
+
+.pi-agent-empty-icon svg {
+  height: 34px;
+  width: 34px;
+}
+
+.pi-agent-message {
+  margin-bottom: 12px;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.pi-agent-message-role {
+  align-items: center;
+  color: var(--text-muted);
+  display: flex;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.pi-agent-message-role-title {
+  align-items: center;
+  display: inline-flex;
+  flex: 1;
+  gap: 5px;
+  min-width: 0;
+}
+
+.pi-agent-message-actions {
+  background: transparent;
+  border-radius: 6px;
+  color: var(--text-muted);
+  height: 28px;
+  opacity: 1;
+  width: 28px;
+}
+
+.pi-agent-message-actions:hover,
+.pi-agent-message-actions:focus {
+  background: transparent;
+  color: var(--text-normal);
+}
+
+.pi-agent-setting-error {
+  color: var(--text-error);
+  font-size: var(--font-ui-smaller);
+  margin: -8px 0 10px;
+}
+
+.pi-agent-role-icon {
+  align-items: center;
+  color: var(--text-faint);
+  display: inline-flex;
+  height: 14px;
+  justify-content: center;
+  width: 14px;
+}
+
+.pi-agent-role-icon svg {
+  height: 14px;
+  width: 14px;
+}
+
+.pi-agent-message-content {
+  background: var(--background-secondary-alt);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  color: var(--text-normal);
+  cursor: text;
+  font-family: var(--font-interface);
+  font-size: var(--font-ui-medium);
+  line-height: var(--line-height-normal);
+  margin: 0;
+  overflow: auto;
+  padding: 10px;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.pi-agent-message-content.markdown-rendered,
+.pi-agent-message-answer.markdown-rendered {
+  white-space: normal;
+}
+
+.pi-agent-message-answer {
+  min-width: 0;
+}
+
+.pi-agent-message-content-streaming {
+  contain: paint;
+  overflow-x: hidden;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.pi-agent-message-content.markdown-rendered table,
+.pi-agent-message-answer.markdown-rendered table {
+  border-collapse: collapse;
+  margin: 8px 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.pi-agent-message-content.markdown-rendered th,
+.pi-agent-message-content.markdown-rendered td,
+.pi-agent-message-answer.markdown-rendered th,
+.pi-agent-message-answer.markdown-rendered td {
+  border: 1px solid var(--background-modifier-border);
+  padding: 4px 8px;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.pi-agent-message-content.markdown-rendered th,
+.pi-agent-message-answer.markdown-rendered th {
+  background: var(--background-modifier-hover);
+  font-weight: 600;
+}
+
+.pi-agent-message-content.markdown-rendered tr:nth-child(even),
+.pi-agent-message-answer.markdown-rendered tr:nth-child(even) {
+  background: color-mix(in srgb, var(--background-modifier-hover) 30%, transparent);
+}
+
+.pi-agent-message-content.markdown-rendered pre,
+.pi-agent-message-answer.markdown-rendered pre {
+  padding: 0.6rem 0.9rem;
+  margin: 8px 0;
+  max-width: 100%;
+  overflow-x: auto;
+  background: var(--background-modifier-border);
+  border-radius: 4px;
+}
+
+.pi-agent-message-content.markdown-rendered :not(pre) > code,
+.pi-agent-message-answer.markdown-rendered :not(pre) > code {
+  background: var(--background-modifier-border);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.92em;
+  word-break: break-all;
+}
+
+.pi-agent-message-content.markdown-rendered blockquote,
+.pi-agent-message-answer.markdown-rendered blockquote {
+  border-left: 3px solid var(--interactive-accent);
+  padding-inline-start: 1rem;
+  margin: 8px 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.pi-agent-message-content a {
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.pi-agent-typing-cursor {
+  animation: pi-agent-typing-cursor-blink 0.9s steps(2, start) infinite;
+  color: var(--interactive-accent);
+  margin-left: 2px;
+}
+
+@keyframes pi-agent-typing-cursor-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.pi-agent-message-content,
+.pi-agent-message-content * {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.pi-agent-message-assistant .pi-agent-message-content {
+  border-color: var(--background-modifier-border-hover);
+}
+
+.pi-agent-message-user .pi-agent-message-content {
+  background: color-mix(in srgb, var(--interactive-accent) 14%, var(--background-primary-alt));
+  border-color: color-mix(
+    in srgb,
+    var(--interactive-accent) 32%,
+    var(--background-modifier-border)
+  );
+}
+
+.pi-agent-message-user .pi-agent-message-role {
+  color: color-mix(in srgb, var(--interactive-accent) 82%, var(--text-muted));
+}
+
+.pi-agent-message-user .pi-agent-role-icon {
+  color: color-mix(in srgb, var(--interactive-accent) 82%, var(--text-muted));
+}
+
+.pi-agent-composer {
+  display: grid;
+  gap: 8px;
+  position: relative;
+}
+
+.pi-agent-tool-badges {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-height: 18px;
+}
+
+.pi-agent-tool-badge {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  line-height: 1.4;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.pi-agent-tool-badge.is-enabled {
+  color: var(--text-muted);
+}
+
+.pi-agent-context-badges {
+  align-items: center;
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-width: 0;
+}
+
+.pi-agent-context-badges:empty {
+  display: none;
+}
+
+.pi-agent-context-badge {
+  align-items: center;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  display: inline-flex;
+  gap: 2px;
+  max-width: min(220px, 100%);
+  min-height: 22px;
+  padding: 1px 2px 1px 7px;
+}
+
+.pi-agent-context-badge-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pi-agent-context-badge-remove {
+  background: transparent;
+  color: var(--text-muted);
+  flex: 0 0 auto;
+  height: 18px;
+  padding: 2px;
+  width: 18px;
+}
+
+.pi-agent-context-badge-remove:hover,
+.pi-agent-context-badge-remove:focus-visible {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+.pi-agent-context-badge-remove svg {
+  height: 12px;
+  width: 12px;
+}
+
+.pi-agent-tool-badge-context {
+  font-variant-numeric: tabular-nums;
+  margin-left: auto;
+  max-width: none;
+}
+
+.pi-agent-composer-bar {
+  align-items: center;
+  display: flex;
+  gap: 6px;
+  min-width: 0;
+}
+
+.pi-agent-composer-bar.is-compact {
+  gap: 3px;
+}
+
+.pi-agent-composer-bar.is-compact .pi-agent-run-setting {
+  gap: 0;
+  padding: 0;
+  width: 28px;
+}
+
+.pi-agent-composer-bar.is-compact .pi-agent-run-setting .pi-agent-control-label {
+  display: none;
+}
+
+.pi-agent-composer-bar.is-compact.is-expanded {
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.pi-agent-composer-bar.is-compact.is-expanded .pi-agent-run-settings {
+  display: flex;
+  flex: 1 0 100%;
+  order: 10;
+}
+
+.pi-agent-composer-bar.is-compact.is-expanded .pi-agent-run-setting {
+  flex: 1 1 0;
+  gap: 4px;
+  min-width: 0;
+  padding: 0 4px;
+  width: auto;
+}
+
+.pi-agent-composer-bar.is-compact.is-expanded .pi-agent-run-setting .pi-agent-control-label {
+  display: inline;
+}
+
+.pi-agent-composer-bar.is-narrow:not(.is-expanded) .pi-agent-run-settings {
+  display: flex;
+}
+
+.pi-agent-composer-bar.is-narrow .pi-agent-send-button {
+  margin-left: auto;
+}
+
+.pi-agent-prompt-queue {
+  display: grid;
+  gap: 6px;
+}
+
+.pi-agent-prompt-queue.is-empty {
+  display: none;
+}
+
+.pi-agent-prompt-queue-heading {
+  align-items: center;
+  color: var(--text-muted);
+  display: flex;
+  font-size: var(--font-ui-smaller);
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.pi-agent-prompt-queue-hint {
+  color: var(--text-faint);
+  font-weight: 400;
+}
+
+.pi-agent-prompt-queue-item {
+  align-items: center;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 6px 8px;
+}
+
+.pi-agent-prompt-queue-content {
+  min-width: 0;
+}
+
+.pi-agent-prompt-queue-text {
+  color: var(--text-normal);
+  font-size: var(--font-ui-small);
+  line-height: 1.35;
+  max-height: 3.9em;
+  overflow: hidden;
+}
+
+.pi-agent-prompt-queue-actions {
+  align-items: center;
+  display: inline-flex;
+  gap: 2px;
+}
+
+.pi-agent-prompt-queue-action {
+  background: transparent;
+  color: var(--text-muted);
+  height: 24px;
+  width: 24px;
+}
+
+.pi-agent-prompt-queue-action.is-text {
+  padding: 0 8px;
+  width: auto;
+}
+
+.pi-agent-prompt-queue-action:hover,
+.pi-agent-prompt-queue-action:focus {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+.pi-agent-queue-image-previews,
+.pi-agent-composer-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pi-agent-composer-images.is-empty {
+  display: none;
+}
+
+.pi-agent-queue-image-preview,
+.pi-agent-composer-image img {
+  border-radius: 6px;
+  height: 52px;
+  object-fit: cover;
+  width: 52px;
+}
+
+.pi-agent-composer-image {
+  align-items: center;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  display: flex;
+  gap: 6px;
+  max-width: 260px;
+  padding: 4px;
+  position: relative;
+}
+
+.pi-agent-composer-file {
+  min-height: 52px;
+}
+
+.pi-agent-attachment-icon {
+  color: var(--text-muted);
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.pi-agent-attachment-metadata,
+.pi-agent-queue-attachment span:last-child {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pi-agent-queue-attachment {
+  align-items: center;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  display: flex;
+  gap: 6px;
+  max-width: 100%;
+  padding: 4px;
+}
+
+.pi-agent-composer-image button {
+  background: var(--background-primary-alt);
+  height: 20px;
+  padding: 2px;
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  width: 20px;
+}
+
+.pi-agent-image-input {
+  display: none;
+}
+
+.pi-agent-native-queue {
+  border-top: 1px solid var(--background-modifier-border);
+  display: grid;
+  gap: 4px;
+  padding-top: 6px;
+}
+
+.pi-agent-composer textarea {
+  background: var(--background-primary);
+  color: var(--text-normal);
+  line-height: var(--line-height-normal);
+  max-height: 160px;
+  min-height: 38px;
+  overflow-y: auto;
+  resize: none;
+  width: 100%;
+  -webkit-text-fill-color: var(--text-normal);
+}
+
+.pi-agent-composer textarea::placeholder {
+  color: var(--text-muted);
+  -webkit-text-fill-color: var(--text-muted);
+}
+
+.pi-agent-composer textarea:disabled {
+  opacity: 0.75;
+}
+
+.pi-agent-view button.pi-agent-send-button {
+  align-items: center;
+  background: var(--interactive-accent);
+  border: 0;
+  box-shadow: none;
+  color: var(--text-on-accent);
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 4px;
+  height: 30px;
+  justify-content: center;
+  padding: 0 10px;
+  border-radius: 6px;
+  width: auto;
+}
+
+.pi-agent-send-button:hover,
+.pi-agent-send-button:focus {
+  background: var(--interactive-accent-hover);
+  color: var(--text-on-accent);
+}
+
+.pi-agent-send-button:disabled {
+  background: var(--background-modifier-border);
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+.pi-agent-view button.pi-agent-send-button.is-queue {
+  background: var(--interactive-accent);
+}
+
+.pi-agent-view button.pi-agent-send-button.is-cancel {
+  background: var(--background-modifier-error);
+  color: var(--text-on-accent);
+}
+
+.pi-agent-view button.pi-agent-send-button.is-canceling svg {
+  animation: pi-agent-thread-running-spin 1s linear infinite;
+}
+
+.pi-agent-suggest {
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  bottom: calc(100% + 8px);
+  box-shadow: var(--shadow-s);
+  display: grid;
+  left: 0;
+  max-height: 260px;
+  overflow: auto;
+  padding: 4px;
+  position: absolute;
+  right: 0;
+  z-index: 20;
+}
+
+.pi-agent-suggest-item {
+  align-items: center;
+  border-radius: 6px;
+  cursor: pointer;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(150px, 0.36fr) minmax(0, 1fr);
+  padding: 7px 8px;
+}
+
+.pi-agent-suggest-item.is-selected,
+.pi-agent-suggest-item:hover {
+  background: var(--background-modifier-hover);
+}
+
+.pi-agent-suggest-label {
+  color: var(--text-normal);
+  font-size: var(--font-ui-small);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pi-agent-suggest-detail {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pi-agent-message-activity {
+  margin-bottom: 8px;
+}
+
+.pi-agent-thinking-disclosure.is-live .pi-agent-thinking-label {
+  animation: pi-agent-activity-flow 1.2s linear infinite;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 28%,
+      color-mix(in srgb, var(--interactive-accent) 25%, transparent) 36%,
+      color-mix(in srgb, var(--interactive-accent) 70%, transparent) 45%,
+      var(--interactive-accent) 50%,
+      color-mix(in srgb, var(--interactive-accent) 70%, transparent) 55%,
+      color-mix(in srgb, var(--interactive-accent) 25%, transparent) 64%,
+      transparent 72%,
+      transparent 100%
+    ),
+    linear-gradient(var(--text-muted), var(--text-muted));
+  background-clip: text;
+  background-position:
+    140% 50%,
+    0 0;
+  background-repeat: no-repeat;
+  background-size:
+    220% 100%,
+    100% 100%;
+  color: var(--text-muted);
+  display: inline-block;
+  font-size: var(--font-ui-smaller);
+  font-weight: 500;
+  line-height: inherit;
+  overflow: visible;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+@keyframes pi-agent-activity-flow {
+  0% {
+    background-position:
+      140% 50%,
+      0 0;
+  }
+  48%,
+  100% {
+    background-position:
+      -30% 50%,
+      0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pi-agent-thinking-disclosure.is-live .pi-agent-thinking-label,
+  .pi-agent-thread-list-running,
+  .pi-agent-typing-cursor {
+    animation: none;
+  }
+
+  .pi-agent-thinking-disclosure.is-live .pi-agent-thinking-label {
+    background: none;
+    filter: none;
+    -webkit-text-fill-color: var(--text-muted);
+  }
+
+  .pi-agent-thinking-chevron {
+    transition: none;
+  }
+}
+
+.pi-agent-thinking-disclosure {
+  border-bottom: 1px solid var(--background-modifier-border-hover);
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  margin: -4px -4px 6px;
+  overflow: hidden;
+  padding-bottom: 6px;
+}
+
+.pi-agent-thinking-disclosure.is-live {
+  border-bottom-color: transparent;
+  margin-bottom: -4px;
+  padding-bottom: 0;
+}
+
+.pi-agent-thinking-disclosure.is-live.has-response {
+  border-bottom-color: var(--background-modifier-border-hover);
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+}
+
+.pi-agent-thinking-disclosure summary {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 5px;
+  list-style: none;
+  min-height: 28px;
+  padding: 0;
+  user-select: none;
+}
+
+.pi-agent-thinking-disclosure summary:hover,
+.pi-agent-thinking-disclosure summary:focus-visible {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+.pi-agent-thinking-disclosure summary::-webkit-details-marker {
+  display: none;
+}
+
+.pi-agent-thinking-chevron {
+  align-items: center;
+  display: inline-flex;
+  transition: transform 120ms ease;
+}
+
+.pi-agent-thinking-disclosure[open] .pi-agent-thinking-chevron {
+  transform: rotate(90deg);
+}
+
+.pi-agent-thinking-chevron svg {
+  height: 13px;
+  width: 13px;
+}
+
+.pi-agent-thinking-label {
+  color: var(--text-normal);
+  font-weight: var(--font-bold);
+  letter-spacing: 0.04em;
+}
+
+.pi-agent-thinking-content {
+  color: var(--text-muted);
+  font-family: var(--font-interface);
+  line-height: 1.5;
+  max-height: 240px;
+  overflow: auto;
+  overflow-wrap: anywhere;
+  padding: 0 0 0 18px;
+}
+
+.pi-agent-thinking-content.markdown-rendered > * {
+  margin-block: 3px;
+}
+
+.pi-agent-thinking-content.markdown-rendered > :first-child {
+  margin-top: 0;
+}
+
+.pi-agent-thinking-content.markdown-rendered > :last-child {
+  margin-bottom: 0;
+}
+
+.pi-agent-tool-error {
+  background: color-mix(in srgb, var(--background-modifier-error) 12%, transparent);
+  border-left: 2px solid var(--text-error);
+  color: var(--text-error);
+  font-size: var(--font-ui-smaller);
+  margin: 4px 0 8px;
+  padding: 6px 8px;
+}
+
+.pi-agent-approval {
+  display: grid;
+  gap: 12px;
+}
+
+.pi-agent-change-preview {
+  display: grid;
+  gap: 8px;
+}
+
+.pi-agent-change-preview h3 {
+  font-size: 13px;
+  margin: 0;
+}
+
+.pi-agent-change-preview pre {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  max-height: 260px;
+  overflow: auto;
+  padding: 10px;
+  white-space: pre-wrap;
+}
+
+.pi-agent-thread-list-header {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  min-height: 30px;
+}
+
+.pi-agent-thread-list-heading {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.pi-agent-thread-list-title-heading {
+  color: var(--text-normal);
+  font-size: var(--font-ui-small);
+  font-weight: var(--font-semibold);
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pi-agent-thread-list-subtitle {
+  color: var(--text-faint);
+  font-size: var(--font-ui-smaller);
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pi-agent-thread-list {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  overflow: auto;
+}
+
+.pi-agent-thread-list-row {
+  align-items: center;
+  border-bottom: 1px solid var(--background-modifier-border);
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 7px 0;
+}
+
+.pi-agent-thread-list-row:hover,
+.pi-agent-thread-list-row:focus-within {
+  background: color-mix(in srgb, var(--background-modifier-hover) 70%, transparent);
+}
+
+.pi-agent-thread-list-row.is-current {
+  box-shadow: inset 2px 0 0 var(--interactive-accent);
+  padding-left: 8px;
+}
+
+.pi-agent-thread-list-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.pi-agent-thread-list-title {
+  align-items: center;
+  color: var(--text-normal);
+  cursor: pointer;
+  display: flex;
+  gap: 5px;
+  font-size: var(--font-ui-small);
+  line-height: 1.25;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pi-agent-thread-list-title > span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pi-agent-thread-list-running {
+  align-items: center;
+  animation: pi-agent-thread-running-spin 1s linear infinite;
+  color: var(--interactive-accent);
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.pi-agent-thread-list-running svg {
+  height: 13px;
+  width: 13px;
+}
+
+.pi-agent-thread-favorite.is-favorite {
+  color: var(--text-muted);
+}
+
+@keyframes pi-agent-thread-running-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.pi-agent-thread-list-title:hover,
+.pi-agent-thread-list-title:focus {
+  color: var(--text-normal);
+  outline: none;
+}
+
+.pi-agent-thread-list-title-input {
+  background: transparent;
+  border: 0;
+  box-shadow: inset 0 -1px 0 var(--interactive-accent);
+  color: var(--text-normal);
+  font-size: var(--font-ui-small);
+  line-height: 1.25;
+  max-width: 100%;
+  min-width: 0;
+  outline: none;
+  padding: 0;
+  width: 100%;
+}
+
+.pi-agent-thread-list-meta {
+  color: var(--text-faint);
+  font-size: var(--font-ui-smaller);
+  line-height: 1.25;
+  margin-top: 2px;
+}
+
+.pi-agent-thread-list-actions {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 2px;
+  opacity: 0.45;
+  transition: opacity 120ms ease;
+}
+
+.pi-agent-thread-list-row:hover .pi-agent-thread-list-actions,
+.pi-agent-thread-list-row:focus-within .pi-agent-thread-list-actions,
+.pi-agent-thread-list-row.is-current .pi-agent-thread-list-actions {
+  opacity: 1;
+}
+
+.pi-agent-thread-list-action {
+  background: transparent;
+  color: var(--text-muted);
+  height: 26px;
+  width: 26px;
+}
+
+.pi-agent-thread-list-action:hover,
+.pi-agent-thread-list-action:focus {
+  background: transparent;
+  color: var(--text-normal);
+}
+
+.pi-agent-extension-widgets:empty {
+  display: none;
+}
+
+.pi-agent-extension-widget {
+  margin: 4px 0;
+  padding: 6px 8px;
+  border-radius: var(--radius-s);
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  white-space: pre-wrap;
+}
+
+.pi-agent-extension-input {
+  width: 100%;
+  min-height: 36px;
+}
+
+textarea.pi-agent-extension-input {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.pi-agent-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.pi-agent-model-suggestion {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  min-width: 0;
+}
+
+.pi-agent-model-suggestion-copy {
+  min-width: 0;
+}
+
+.pi-agent-suggestion-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pi-agent-suggestion-detail {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pi-agent-annotations-host {
+  position: relative;
+}
+
+.pi-agent-annotations-action.is-active {
+  color: var(--interactive-accent);
+}
+
+.pi-agent-annotations-action:focus-visible,
+.pi-agent-annotation-item-action:focus-visible,
+.pi-agent-annotation-intent:has(input:focus-visible) {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+}
+
+.pi-agent-annotation-range {
+  background: color-mix(in srgb, var(--interactive-accent) 12%, transparent);
+  border-bottom: 2px solid var(--interactive-accent);
+  border-radius: 2px 2px 0 0;
+}
+
+.pi-agent-annotation-pick-mode {
+  cursor: crosshair;
+}
+
+.cm-line.pi-agent-annotation-pick-line {
+  border-radius: var(--radius-s);
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: -1px;
+}
+
+.pi-agent-annotation-reading-pick-mode .pi-agent-annotation-rendered-target {
+  border-radius: var(--radius-s);
+  cursor: crosshair;
+}
+
+.pi-agent-annotation-reading-pick-mode .pi-agent-annotation-rendered-target:hover,
+.pi-agent-annotation-reading-pick-mode .pi-agent-annotation-rendered-target:focus,
+.pi-agent-annotation-reading-pick-mode .pi-agent-annotation-rendered-target.is-focused,
+.pi-agent-annotation-navigated {
+  border-radius: var(--radius-s);
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+}
+
+.pi-agent-annotation-processing-range {
+  animation: pi-agent-annotation-processing-flow 1.2s linear infinite;
+  background-color: var(--background-modifier-border);
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 30%,
+    color-mix(in srgb, var(--interactive-accent) 20%, transparent) 40%,
+    color-mix(in srgb, var(--interactive-accent) 85%, transparent) 50%,
+    color-mix(in srgb, var(--interactive-accent) 20%, transparent) 60%,
+    transparent 70%,
+    transparent 100%
+  );
+  background-position: 140% 50%;
+  background-repeat: no-repeat;
+  background-size: 220% 100%;
+  border-radius: var(--radius-s);
+}
+
+.pi-agent-annotation-processing-range,
+.pi-agent-annotation-processing-range * {
+  -webkit-text-fill-color: transparent !important;
+  caret-color: transparent !important;
+  color: transparent !important;
+  text-decoration: none !important;
+  text-decoration-color: transparent !important;
+}
+
+.pi-agent-annotation-processing-range::spelling-error,
+.pi-agent-annotation-processing-range *::spelling-error {
+  text-decoration: none !important;
+}
+
+.pi-agent-annotation-processing-range {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+@keyframes pi-agent-annotation-processing-flow {
+  0% {
+    background-position: 140% 50%;
+  }
+
+  48%,
+  100% {
+    background-position: -30% 50%;
+  }
+}
+
+.pi-agent-annotations-list {
+  background: color-mix(in srgb, var(--background-primary) 94%, transparent);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  bottom: 12px;
+  box-shadow: var(--shadow-s);
+  display: grid;
+  gap: 3px;
+  max-height: min(38vh, 320px);
+  overflow: auto;
+  padding: 6px;
+  position: absolute;
+  right: 12px;
+  width: min(310px, calc(100% - 24px));
+  z-index: 15;
+}
+
+.pi-agent-annotations-list.is-empty {
+  display: none;
+}
+
+.pi-agent-annotations-list-heading {
+  align-items: center;
+  background: var(--background-primary);
+  color: var(--text-muted);
+  display: flex;
+  font-size: var(--font-ui-smaller);
+  font-weight: var(--font-semibold);
+  justify-content: space-between;
+  padding: 2px 4px 4px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.pi-agent-annotations-send {
+  align-items: center;
+  display: inline-flex;
+  font-size: var(--font-ui-smaller);
+  gap: 6px;
+  min-height: 30px;
+  padding: 4px 10px;
+}
+
+.pi-agent-annotations-send-icon {
+  display: inline-flex;
+}
+
+.pi-agent-annotations-send-icon svg {
+  height: 15px;
+  width: 15px;
+}
+
+.pi-agent-annotation-item {
+  align-items: center;
+  border-radius: 6px;
+  display: grid;
+  gap: 4px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 5px 4px;
+}
+
+.pi-agent-annotation-item:hover,
+.pi-agent-annotation-item:focus-within {
+  background: var(--background-modifier-hover);
+}
+
+.pi-agent-annotation-item.is-detached {
+  opacity: 0.72;
+}
+
+.pi-agent-annotation-copy {
+  min-width: 0;
+}
+
+.pi-agent-annotation-quote,
+.pi-agent-annotation-context-preview {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pi-agent-annotation-quote {
+  color: var(--text-normal);
+  font-size: var(--font-ui-small);
+  font-weight: var(--font-medium);
+}
+
+.pi-agent-annotation-context-preview,
+.pi-agent-annotation-meta {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+}
+
+.pi-agent-annotation-meta {
+  display: flex;
+  gap: 8px;
+}
+
+.pi-agent-annotation-item-actions {
+  display: inline-flex;
+  gap: 1px;
+}
+
+.pi-agent-annotation-item-action {
+  background: transparent;
+  color: var(--text-muted);
+  height: 25px;
+  width: 25px;
+}
+
+.pi-agent-annotation-modal label {
+  color: var(--text-normal);
+  font-size: var(--font-ui-small);
+  font-weight: var(--font-semibold);
+}
+
+.pi-agent-annotation-context {
+  display: block;
+  margin: 6px 0 10px;
+  resize: vertical;
+  width: 100%;
+}
+
+.pi-agent-annotation-intents {
+  border: 0;
+  display: flex;
+  gap: 4px;
+  margin: 0 0 12px;
+  padding: 0;
+}
+
+.pi-agent-annotation-intent {
+  align-items: center;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 5px;
+  padding: 5px 9px;
+  position: relative;
+}
+
+.pi-agent-annotation-intent input {
+  height: 1px;
+  opacity: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.pi-agent-annotation-intent:has(input:checked) {
+  background: var(--interactive-accent);
+  border-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.pi-agent-annotation-error {
+  color: var(--text-error);
+  font-size: var(--font-ui-smaller);
+  margin-bottom: 8px;
+}
+
+.pi-agent-annotation-error:empty {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pi-agent-annotation-rendered-target,
+  .pi-agent-annotation-navigated,
+  .pi-agent-annotation-range {
+    scroll-behavior: auto;
+    transition: none;
+  }
+
+  .pi-agent-annotation-processing-range {
+    animation: none;
+    background-image: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .pi-agent-annotations-list {
+    bottom: 6px;
+    max-height: 28vh;
+    right: 6px;
+    width: calc(100% - 12px);
+  }
+
+  .pi-agent-annotation-context-preview {
+    display: none;
+  }
+
+  .pi-agent-annotation-item {
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pi-agent-annotation-item-actions {
+    justify-content: flex-end;
+  }
+}

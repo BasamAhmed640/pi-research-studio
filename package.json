@@ -1,0 +1,68 @@
+{
+  "name": "pi-research-studio",
+  "version": "0.1.0",
+  "description": "A Pi research workspace combining Pi Web Access, Visual Explainer, Feynman and Pi Agent for Obsidian.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "pi-package",
+    "research",
+    "obsidian",
+    "visual-explainer",
+    "feynman"
+  ],
+  "engines": {
+    "node": ">=22.22.0 <26"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BasamAhmed640/pi-research-studio.git"
+  },
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "files": [
+    "index.ts",
+    "src",
+    "vendor",
+    "README.md",
+    "THIRD-PARTY.md",
+    "upstream-lock.json",
+    "examples"
+  ],
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "dependencies": {
+    "pi-web-access": "0.29.0",
+    "unpdf": "1.8.1",
+    "visual-explainer": "0.11.0"
+  },
+  "bundledDependencies": [
+    "pi-web-access",
+    "visual-explainer"
+  ],
+  "peerDependencies": {
+    "@earendil-works/pi-ai": ">=0.85.1 <0.86",
+    "@earendil-works/pi-coding-agent": ">=0.85.1 <0.86",
+    "@earendil-works/pi-tui": ">=0.85.1 <0.86",
+    "typebox": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    },
+    "@earendil-works/pi-ai": {
+      "optional": true
+    },
+    "@earendil-works/pi-tui": {
+      "optional": true
+    },
+    "typebox": {
+      "optional": true
+    }
+  }
+}

@@ -9,6 +9,10 @@ Research Studio is independent of these projects and is not endorsed by their au
 | [Feynman](https://github.com/advaitpaliwal/feynman) | npm 0.3.48 | Original researcher, verifier and reviewer prompts in `vendor/feynman`; native Pi runs the roles | MIT, Companion, Inc. |
 | [Pi Agent for Obsidian](https://github.com/ChristianLempa/obsidian-pi) | 0.0.13 | Exact release assets in `vendor/obsidian-pi`; optional Obsidian chat interface | MIT, upstream license included |
 | [unpdf](https://github.com/unjs/unpdf) | 1.8.1 | Local PDF text extraction | MIT |
+| [Turndown](https://github.com/mixmark-io/turndown) | 7.2.4 | Readable Markdown copies of visual answers | MIT |
+| [node-html-parser](https://github.com/taoqf/node-html-parser) | 9.0.4 | Report parsing and source/attachment links | MIT |
+
+The small Research Studio Viewer in `obsidian/` is part of this MIT-licensed project. It is separate from the unchanged optional Pi Agent chat companion.
 
 Feynman's original role files are preserved byte-for-byte. Studio adds an explicit runtime adaptation: general subjects are supported; only available tools may be used; a failed search does not establish nonexistence; the lead writes files and resolves review findings; routine plan approval and recursive delegation are excluded. Its evidence → draft → verification → review approach informs Deep mode. The complete Feynman application and its runtime are **not** included.
 

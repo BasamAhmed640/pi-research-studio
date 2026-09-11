@@ -1,0 +1,9 @@
+{
+  "id": "research-studio-viewer",
+  "name": "Research Studio Viewer",
+  "version": "0.2.0",
+  "minAppVersion": "1.5.0",
+  "description": "Read Research Studio answers and interactive visuals directly in your Obsidian notes.",
+  "author": "Basam Ahmed",
+  "isDesktopOnly": true
+}

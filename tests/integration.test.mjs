@@ -29,7 +29,10 @@ test('linking preserves Obsidian settings and installs byte-identical upstream a
   assert.equal(await linkVault(`"${vault}"`), vault);
   for (const name of ['main.js', 'styles.css', 'manifest.json']) assert.deepEqual(await readFile(join(vault, '.obsidian/plugins/pi-agent', name)), await readFile(join(UPSTREAM.obsidian, name)));
   assert.equal(await readFile(join(vault, '.obsidian/plugins/pi-agent/data.json'), 'utf8'), '{"keep":true}');
-  assert.equal(await readFile(join(vault, '.obsidian/community-plugins.json'), 'utf8'), '["another-plugin"]');
+  assert.deepEqual(await readJson(join(vault, '.obsidian/community-plugins.json')), ['another-plugin', 'research-studio-viewer']);
+  await linkVault(vault);
+  assert.deepEqual(await readJson(join(vault, '.obsidian/community-plugins.json')), ['another-plugin', 'research-studio-viewer']);
+  assert.equal((await readJson(join(vault, '.obsidian/plugins/research-studio-viewer/manifest.json'))).id, 'research-studio-viewer');
   await assert.rejects(linkVault(join(temporary, 'missing')));
   assert.equal((await readJson(process.env.PI_STUDIO_CONFIG)).vault, vault);
 });

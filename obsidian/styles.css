@@ -1,0 +1,5 @@
+.research-studio-note { --file-line-width: 1120px; }
+.research-studio-report { width: 100%; margin: 20px 0; }
+.research-studio-report iframe { display: block; width: 100%; min-height: 240px; border: 1px solid var(--background-modifier-border); border-radius: 12px; background: #1e1e1e; }
+.research-studio-report .research-studio-status { color: var(--text-muted); font-size: var(--font-smallest); }
+.research-studio-note .markdown-embed { border: 0; padding: 0; }

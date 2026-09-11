@@ -1,6 +1,6 @@
 # Research Studio
 
-Ask in Pi. Keep the conversation, sources, attachments and visual reports in your Obsidian vault.
+**Ask in Pi. Read the complete answer inside Obsidian.** Conversations, source notes, attachments and interactive visual reports stay in your chosen vault.
 
 Studio combines **Pi Web Access**, **Visual Explainer**, **Feynman's research roles**, and the optional **Pi Agent for Obsidian** interface. It opens with `/studio` and stays inactive in ordinary Pi sessions.
 
@@ -23,6 +23,10 @@ Restart Pi or use `/reload`, then link an existing Obsidian vault:
 
 Choose the **vault root containing `.obsidian`**, not an ordinary subfolder. Linking is required. You choose the vault; installation does not pick or move one. Use `/studio exit` before linking a different vault. Existing material stays in its original vault.
 
+Linking installs the bundled **Research Studio Viewer** and adds it to Obsidian's enabled plugins. If Obsidian is already open, restart it once to load the viewer. If Restricted mode is on, allow community plugins in Obsidian; Studio does not change that security setting. There is no separate plugin download.
+
+Run `/studio example` to open the interactive example **as a note in your linked vault**, without a model call. For an existing 0.1 installation, update the Pi package, `/reload`, and run the vault-link command again to install the viewer. Research Studio 0.2 publishes new answers as linked notes; existing HTML reports are retained as they were.
+
 ## Ask and Deep
 
 | | Ask | Deep |
@@ -44,7 +48,11 @@ The instructions require substantive explanations: conclusion, necessary context
 
 Substantial answers use Visual Explainer's **full HTML** path, with a dark charcoal background, clear typography, meaningful tables, charts, diagrams, explanation and source links. Charts should have readable labels and an interpretation. The quick renderer is reserved for explicitly requested small visuals. Simple facts and short follow-ups stay as text.
 
-Interactive reports are saved in the vault and **open in your browser**. Obsidian holds the files and reads the Markdown conversations; it does not natively execute arbitrary HTML reports. Mermaid and chart libraries can be used in full reports. Reports should include readable text/data fallbacks for unavailable scripts. No Obsidian plugin is required for this main workflow.
+Finished answers **open in Obsidian**. Each substantial answer has a named Markdown note with its interactive report embedded at full width, an expandable **Readable text and data** copy, and linked source notes. The conversation embeds that answer note, and the answer links back to the conversation. Source notes retain the original URL and connect through Obsidian's backlinks and graph. They are references, not automatically downloaded source snapshots or proof of verification. Your edits to source notes are preserved.
+
+HTML is an internal visual asset stored beside the note. The bundled viewer displays it inside Obsidian in a sandbox without access to Obsidian's app or Node APIs; no website, local web server or browser tab is needed. It resizes to the report's content and refreshes when its asset changes. Every render gets its own file, so a later answer cannot overwrite an earlier chart.
+
+Use self-contained CSS and SVG/canvas for offline visuals. Mermaid and Chart.js may load from `cdn.jsdelivr.net`, requiring internet access. Other external scripts, stylesheets, fonts, network fetches and remote images are blocked by the viewer. Local photos from the vault can be embedded in the report. Reports must include prose and static data tables in the initial HTML; these become the searchable Markdown copy even if scripts fail or the viewer is disabled. Plain answers and attachments render directly as Markdown. Studio does not add a model pass to perform this publishing step.
 
 See [the self-contained presentation example](examples/growth.html). It demonstrates layout and interaction with explicitly hypothetical data, not the output of a live research benchmark.
 
@@ -54,7 +62,9 @@ See [the self-contained presentation example](examples/growth.html). It demonstr
 | --- | --- |
 | `/studio` | Open a new native Pi research session; show help if already open |
 | `/studio help` | Show commands and explanations |
-| `/studio vault "path"` | Link/relink the vault and copy the optional Pi Agent companion files |
+| `/studio vault "path"` | Link/relink the vault, install its viewer and copy the optional Pi Agent companion files |
+| `/studio open` | Open the current conversation in Obsidian |
+| `/studio example` | Save and open an interactive example note in the linked vault, without a model call |
 | `/studio ask [question]` | Focused answer mode |
 | `/studio deep [question]` | Research with optional Feynman assistants |
 | `/studio here` | Activate in the current chat, including Pi Agent Full agent mode |
@@ -79,13 +89,15 @@ Your Vault/
     Start.md
     Conversations/   # readable notes, named after the question
     Sessions/        # native Pi JSONL, supports resume and branching
-    Reports/         # full HTML visual explanations
+    Reports/         # named Markdown answer notes and their HTML visual assets
+    Sources/         # cited URLs as linked notes; personal annotations preserved
     Attachments/     # submitted images and local PDFs
     Research/        # assistant findings and native child sessions
-  .obsidian/plugins/pi-agent/  # optional companion
+  .obsidian/plugins/research-studio-viewer/  # bundled in-note visual viewer
+  .obsidian/plugins/pi-agent/                # optional chat companion
 ```
 
-Only the vault pointer lives in `~/.pi/agent/research-studio.json`. Research content is not saved in the extension directory. Pi authentication, web-provider settings and upstream temporary caches retain their normal locations. Linking preserves existing Obsidian preferences and Pi Agent's `data.json`; it never enables a plugin automatically.
+Only the vault pointer lives in `~/.pi/agent/research-studio.json`. Research content is not saved in the extension directory. Pi authentication, web-provider settings and upstream temporary caches retain their normal locations. Linking preserves existing Obsidian preferences, enabled plugins and Pi Agent's `data.json`, and adds the Studio viewer to the enable list. It never enables Pi Agent or changes Restricted mode.
 
 For an optional chat interface inside Obsidian, enable **Pi Agent** in Community plugins, configure its Pi executable, choose **Full agent** mode, and use `/studio here`. Pi Agent owns that interface and its own persistence. A chat activated with `here` keeps its original native session location while Studio writes a readable copy into the vault. Use `/studio ask` from Pi for vault-local native sessions.
 
@@ -98,7 +110,7 @@ npm ci --legacy-peer-deps --ignore-scripts
 npm run check
 ```
 
-For the full test suite, set `PI_STUDIO_SDK` to your installed Pi `dist/index.js`, then run `npm test`. Without it, SDK integration cases are explicitly skipped. Tests exercise actual Pi sessions, source-reading verification with a scripted provider, Visual Explainer's real MCP renderer, PDF extraction, vault containment, mode isolation and component integrity. They do not establish live-model answer quality or certify every Obsidian version.
+For the SDK tests, set `PI_STUDIO_SDK` to your installed Pi `dist/index.js`, then run `npm test`. Without it, SDK integration cases are explicitly skipped. The browser viewer test additionally uses `PI_STUDIO_PLAYWRIGHT` pointing to an installed Playwright module and `PI_STUDIO_BROWSER` (defaults to `msedge`). Tests exercise actual Pi sessions, source-reading verification with a scripted provider, Visual Explainer's real MCP renderer, PDF extraction, vault containment, mode isolation, publishing, source links and component integrity. The viewer test runs the actual plugin code against an Obsidian API stub in Chromium, including chart interactions, resizing and sandbox isolation. It is not a live Obsidian application test. These tests do not establish live-model answer quality or certify every Obsidian version.
 
 This is an initial integration release. See [upstream attribution and exact scope](THIRD-PARTY.md).
 

@@ -1,13 +1,22 @@
 import { createHash } from 'node:crypto';
 import { AREA, atomicWrite, safePath } from './paths.mjs';
+import { wiki } from './publish.mjs';
 
 export async function archiveConversation(root, manager) {
   const branch = manager.getBranch();
   const first = branch.find(entry => entry.type === 'message' && entry.message.role === 'user')?.message;
   const question = (typeof first?.content === 'string' ? first.content : first?.content?.filter(part => part.type === 'text').map(part => part.text).join(' ')) || 'Research conversation';
   const title = question.replace(/[\r\n]+/g, ' ').slice(0, 100);
-  const blocks = [`# ${title}\n`];
+  const blocks = [`---\ncssclasses: [research-studio-note]\n---\n\n# ${title}\n\n[[${AREA}/Start|Research Studio]]\n`];
   for (const entry of branch) {
+    if (entry.type === 'custom' && entry.customType === 'research-studio-report' && entry.data?.notePath?.startsWith(`${AREA}/Reports/`)) {
+      blocks.push(`## Visual answer\n\n![[${wiki(entry.data.notePath)}]]\n`);
+      continue;
+    }
+    if (entry.type === 'message' && entry.message.role === 'toolResult' && entry.message.toolName === 'studio_read_pdf' && entry.message.details?.path?.startsWith(`${AREA}/Attachments/`)) {
+      blocks.push(`[[${entry.message.details.path}|Original PDF]]\n`);
+      continue;
+    }
     if (entry.type !== 'message' || !['user', 'assistant'].includes(entry.message.role)) continue;
     const message = entry.message, text = [];
     for (const part of typeof message.content === 'string' ? [{ type: 'text', text: message.content }] : message.content || []) {

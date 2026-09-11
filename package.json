@@ -1,6 +1,6 @@
 {
   "name": "pi-research-studio",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A Pi research workspace combining Pi Web Access, Visual Explainer, Feynman and Pi Agent for Obsidian.",
   "type": "module",
   "license": "MIT",
@@ -30,14 +30,17 @@
     "README.md",
     "THIRD-PARTY.md",
     "upstream-lock.json",
-    "examples"
+    "examples",
+    "obsidian"
   ],
   "scripts": {
     "test": "node --test tests/*.test.mjs",
     "check": "node scripts/check.mjs"
   },
   "dependencies": {
+    "node-html-parser": "9.0.4",
     "pi-web-access": "0.29.0",
+    "turndown": "7.2.4",
     "unpdf": "1.8.1",
     "visual-explainer": "0.11.0"
   },
@@ -64,5 +67,9 @@
     "typebox": {
       "optional": true
     }
-  }
+  },
+  "bundleDependencies": [
+    "pi-web-access",
+    "visual-explainer"
+  ]
 }

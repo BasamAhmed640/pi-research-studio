@@ -54,10 +54,14 @@ test('real Pi loader opens Studio, uses actual web + visual tools, and archives 
     ai.fauxAssistantMessage('The full explanation is saved in the report.'),
   ]);
   await session.prompt('Explain this and make a visual.');
-  assert.match(await readFile(join(vault, AREA, 'Reports/real-pi-report.html'), 'utf8'), /Complete explanation/);
+  const report = manager.getBranch().find(entry => entry.customType === 'research-studio-report')?.data;
+  assert.ok(report, JSON.stringify(manager.getBranch()));
+  assert.match(await readFile(join(vault, report.htmlPath), 'utf8'), /Complete explanation/);
+  assert.match(await readFile(join(vault, report.notePath), 'utf8'), /Readable text and data[\s\S]*chart supports the answer/);
   const notes = await readdir(join(vault, AREA, 'Conversations'));
   assert.ok(notes.some(name => name.includes('Explain this')));
   assert.match(await readFile(join(vault, AREA, 'Conversations', notes[0]), 'utf8'), /full explanation/);
+  assert.ok((await readFile(join(vault, AREA, 'Conversations', notes[0]), 'utf8')).includes(`![[${report.notePath.replace(/\.md$/, '')}]]`));
 });
 
 test('Feynman verifier is a real, fresh Pi child that reads evidence and saves its findings', { skip: !sdk }, async t => {

@@ -101,3 +101,5 @@ npm run check
 For the full test suite, set `PI_STUDIO_SDK` to your installed Pi `dist/index.js`, then run `npm test`. Without it, SDK integration cases are explicitly skipped. Tests exercise actual Pi sessions, source-reading verification with a scripted provider, Visual Explainer's real MCP renderer, PDF extraction, vault containment, mode isolation and component integrity. They do not establish live-model answer quality or certify every Obsidian version.
 
 This is an initial integration release. See [upstream attribution and exact scope](THIRD-PARTY.md).
+
+The current npm audit reports an upstream `image-size` denial-of-service advisory through Visual Explainer's `pptxgenjs` dependency. Studio exposes the HTML MCP renderer, which does not import that PowerPoint exporter. The affected package is nevertheless installed as an upstream dependency; no patched npm release was available when this version was checked. PowerPoint export is outside Studio's integration. Details: [ICNS parser advisory](https://github.com/advisories/GHSA-w3rx-r6r6-pgpr), [JXL/HEIF parser advisory](https://github.com/advisories/GHSA-5p2g-fcmc-qvqq).
